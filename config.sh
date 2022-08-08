@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
 project_name="vaultwarden"
-# project_home="/usr/local/www"
 envfile_path="/usr/local/etc/rc.conf.d/vaultwarden"
-# project_user="www"
-# project_group=$project_user
 
 echo "Starting $project_name Setup"
+service vaultwarden stop
 
 clear
 
@@ -51,11 +49,11 @@ echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 # Server IP/Port 192.168.1.10:3306 UN: dbuser / PW: yourpassword / DB: vaultwarden
 # mysql://dbuser:yourpassword@192.168.1.10:3306/vaultwarden
 
-database_url = "mysql://$db_username:$db_password@$db_hostname:3306/$db_name
-CMD echo 'DATABASE_URL=$database_url' >> $envfile_path
-CMD echo 'export DATABASE_URL' >>  $envfile_path
+echo "DATABASE_URL=mysql://$db_username:$db_password@$db_hostname:3306/$db_name">> $envfile_path
+echo 'export DATABASE_URL' >>  $envfile_path
 
-# find $envfile_path -type f -exec sed -i '' -e "/^DATABASE_URL=/s/=.*/=0.0.0.0./" {} \;
+find $envfile_path -type f -exec sed -i '' -e "/^ROCKET_ADDRESS=/s/=.*/=0.0.0.0./" {} \;
 
 echo "Database Connection Complete"
 echo "Setup complete"
+service vaultwarden start
