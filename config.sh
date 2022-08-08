@@ -51,9 +51,13 @@ echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo "DATABASE_URL=mysql://$db_username:$db_password@$db_hostname:3306/$db_name">> $envfile_path
 echo 'export DATABASE_URL' >>  $envfile_path
-
-find $envfile_path -type f -exec sed -i '' -e "/^ROCKET_ADDRESS=/s/=.*/=0.0.0.0./" {} \;
-
 echo "Database Connection Complete"
+
+echo "Enabled Public Ip Access"
+find $envfile_path -type f -exec sed -i '' -e "/^ROCKET_ADDRESS=/s/=.*/=0.0.0.0/" {} \;
+
+echo "Enabled Signup"
+find $envfile_path -type f -exec sed -i '' -e "/^SIGNUPS_ALLOWED=/s/=.*/='true'/" {} \;
+
 echo "Setup complete"
 service vaultwarden start
