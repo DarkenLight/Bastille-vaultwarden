@@ -46,20 +46,16 @@ echo "DB_HOSTNAME = $db_hostname"
 echo "DB_DATABASE = $db_name"
 echo "DB_USERNAME = $db_username"
 echo "DB_PASSWORD = $db_password"
-echo "DB_PASSWORD = $app_key"
 echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 # Server IP/Port 192.168.1.10:3306 UN: dbuser / PW: yourpassword / DB: vaultwarden
 # mysql://dbuser:yourpassword@192.168.1.10:3306/vaultwarden
 
+database_url = "mysql://$db_username:$db_password@$db_hostname:3306/$db_name
+CMD echo 'DATABASE_URL=$database_url' >> $envfile_path
+CMD echo 'export DATABASE_URL' >>  $envfile_path
 
-CMD echo 'listen.mode = 0660' >> $envfile_path
+# find $envfile_path -type f -exec sed -i '' -e "/^DATABASE_URL=/s/=.*/=0.0.0.0./" {} \;
 
-
-
-# find $envfile_path -type f -exec sed -i '' -e "/^DB_HOST=/s/=.*/=$db_hostname/" {} \;
-# find $envfile_path -type f -exec sed -i '' -e "/^DB_DATABASE=/s/=.*/=$db_name/" {} \;
-# find $envfile_path -type f -exec sed -i '' -e "/^DB_USERNAME=/s/=.*/=$db_username/" {} \;
-# find $envfile_path -type f -exec sed -i '' -e "/^DB_PASSWORD=/s/=.*/=$db_password/" {} \;
 echo "Database Connection Complete"
 echo "Setup complete"
