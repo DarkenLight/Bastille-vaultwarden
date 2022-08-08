@@ -29,7 +29,7 @@ Installation overview using XigmanasNAS Bastille Extension Gui
 9. Restart the jail.
 
 
-## Applying the Firefly template to the newly created jail
+## Applying the Vaultwarden template to the newly created jail
 
 1. SSH to your Xigmanas Server
 
@@ -37,7 +37,7 @@ Installation overview using XigmanasNAS Bastille Extension Gui
 `bastille bootstrap https://github.com/DarkenLight/Bastille-Bastille-vaultwarden`
 
 3. Apply the Template to the TARGATE jail.
-`bastille template firefly-iii DarkenLight/Bastille-Bastille-vaultwarden`
+`bastille template vaultwarden DarkenLight/Bastille-Bastille-vaultwarden`
 
 
 ## Thanks to Vaultwarden Developers
