@@ -34,10 +34,10 @@ Installation overview using XigmanasNAS Bastille Extension Gui
 1. SSH to your Xigmanas Server
 
 2. BOOTSTRAP the template
-`bastille bootstrap https://github.com/DarkenLight/Bastille-Bastille-vaultwarden`
+`bastille bootstrap https://github.com/DarkenLight/Bastille-vaultwarden`
 
 3. Apply the Template to the TARGATE jail.
-`bastille template vaultwarden DarkenLight/Bastille-Bastille-vaultwarden`
+`bastille template vaultwarden DarkenLight/Bastille-vaultwarden`
 
 
 ## Thanks to Vaultwarden Developers
