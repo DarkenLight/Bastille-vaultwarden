@@ -5,7 +5,7 @@ envfile_path="/usr/local/etc/rc.conf.d/vaultwarden"
 
 echo "Starting $project_name Setup"
 service vaultwarden stop
-
+cp /usr/local/etc/rc.conf.d/vaultwarden.sample $envfile_path
 clear
 
 echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
