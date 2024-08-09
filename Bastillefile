@@ -1,5 +1,5 @@
 PKG vaultwarden bash nano
+SYSRC vaultwarden_enable="YES"
 CP config.sh /root
 CMD chmod +x config.sh && ./config.sh
-SYSRC vaultwarden_enable="YES"
 SERVICE vaultwarden restart
